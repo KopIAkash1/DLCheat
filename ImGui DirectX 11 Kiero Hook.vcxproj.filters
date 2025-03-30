@@ -60,7 +60,7 @@
     <ClCompile Include="imgui\imgui_widgets.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
-    <ClCompile Include="cheat\base_func\health.cpp">
+    <ClCompile Include="cheat\base_func\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cheat\mem\memory.cpp">
@@ -127,7 +127,7 @@
     <ClInclude Include="includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cheat\base_func\health.h">
+    <ClInclude Include="cheat\base_func\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cheat\mem\memory.h">

@@ -1,5 +1,5 @@
 #include "includes.h"
-#include "cheat/base_func/health.h"
+#include "cheat/base_func/Player.h"
 #include <stdio.h>
 #include <iostream>
 #include <WindowsX.h>
@@ -16,7 +16,10 @@ ID3D11Device* pDevice = NULL;
 ID3D11DeviceContext* pContext = NULL;
 ID3D11RenderTargetView* mainRenderTargetView;
 
+// CHECKBOXES
 bool infinity_health = false;
+bool infinity_stamina = false;
+
 
 bool init = false;
 bool acitive_menu = false;
@@ -113,7 +116,17 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 	// CHECKBOXES
 	if (infinity_health)
 	{
-		Health::healthInfinity();
+		if (!Player::healthInfinity())
+		{
+			std::cout << "Health false!" << std::endl;
+		}
+	}
+	if (infinity_stamina)
+	{
+		if (!Player::staminaInfinity())
+		{
+			std::cout << "Stamina false!" << std::endl;
+		}
 	}
 	if (acitive_menu) {
 		ImGui_ImplDX11_NewFrame();
@@ -121,6 +134,7 @@ HRESULT __stdcall hkPresent(IDXGISwapChain* pSwapChain, UINT SyncInterval, UINT 
 		ImGui::NewFrame();
 		ImGui::Begin("Kop1Akash1 | MALWARE");
 		ImGui::Checkbox("Infinity Medicine", &infinity_health);
+		ImGui::Checkbox("Infinity Stamina", &infinity_stamina);
 		ImGui::End();
 
 		ImGui::Render();

@@ -47,18 +47,13 @@ uintptr_t memory::readBaseModule(std::string base_module_name)
 
 uintptr_t memory::readPointerFromVector(std::vector<DWORD> pointerOffsets, std::string base_module_name)
 {
-    std::cout << "START" << std::endl;
+    //std::cout << "START" << std::endl;
     uintptr_t address = readBaseModule(base_module_name);
     HANDLE handle = getHandle();
     for (int i = 0; i < pointerOffsets.size() - 1; i++)
     {
         ReadProcessMemory(handle, (LPCVOID)(address + pointerOffsets.at(i)), &address, sizeof(address), 0);
-        std::cout << "Buff: " << address << std::endl;
+        //std::cout << "Buff: " << address << std::endl;
     }
     return address + pointerOffsets.back();
-}
-
-template <typename T>
-void writePointerValue(uintptr_t pointer, T value) {
-
 }
